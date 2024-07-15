@@ -22,3 +22,15 @@ The vulnerable aspects are gradually secured using industry-standard practices, 
 
 📚 Usage
 Clone the repository and follow the setup instructions to explore vulnerabilities, implement fixes, and learn about secure coding practices.
+
+Topics:
+Implementing OWASP Top 10 in a Secure MERN Application
+Secure Authentication and Authorization in MERN Stack
+Protecting Against SQL Injection in a MERN Application
+Implementing Secure Input Validation in MERN
+Using JWT for Secure Authentication in a MERN Stack
+Secure Handling of Session Management in MERN Applications
+Applying Content Security Policy (CSP) in a MERN Stack
+Implementing HTTPS and TLS/SSL in MERN Applications
+Securing APIs in a MERN Application
+Role-Based Access Control (RBAC) in MERN Applications
