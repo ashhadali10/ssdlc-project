@@ -1,29 +1,33 @@
 🚀 Secure MERN Application for SSDLCP
 
-ℹ️ This project is a simple MERN (MongoDB, Express, React, Node.js) application developed for Secure Software Development Lifecycle Practice (SSDLCP). Initially, the application is intentionally vulnerable, demonstrating various OWASP Top 10 security issues.
+ℹ️ This project is a MERN (MongoDB, Express, React, Node.js) application designed to practice Secure Software Development Lifecycle Practices (SSDLCP). Initially, the application intentionally demonstrates various OWASP Top 10 security issues.
 
 🛡️ Objective
-The primary goal is to simulate and address common security vulnerabilities such as XSS, SQL Injection, CSRF, SSRF, Input Validation Issues, and more. The application serves as a learning platform to understand these vulnerabilities in a controlled environment.
+
+The primary goal is to simulate and address common security vulnerabilities such as XSS, SQL Injection, CSRF, SSRF, and Input Validation Issues. This application serves as a controlled environment for learning about these vulnerabilities.
 
 ✨ Features
 
-Vulnerable Implementation: Initially, the application showcases OWASP vulnerabilities.
-Secure Coding Practice: Implementing secure coding practices to mitigate vulnerabilities.
-OWASP Compliance: Ensuring adherence to OWASP guidelines and best practices.
+Vulnerable Implementation: Demonstrates initial OWASP vulnerabilities.
+Secure Coding Practice: Implements secure coding practices to mitigate vulnerabilities.
+OWASP Compliance: Adheres to OWASP guidelines and best practices.
 MongoDB Database: Utilizes MongoDB for data storage.
 🔧 Technologies
 
-Frontend: React.js for the user interface.
-Backend: Node.js and Express for server-side logic.
-Database: MongoDB for data storage.
-Security: OWASP guidelines for secure development.
+Frontend: Built with React.js for the user interface.
+Backend: Powered by Node.js and Express for server-side logic.
+Database: MongoDB handles data storage.
+Security: Follows OWASP guidelines for secure development.
 🔒 Security Enhancements
-The vulnerable aspects are gradually secured using industry-standard practices, ensuring robust security measures are in place to protect against potential threats.
+
+Gradually secures vulnerable aspects using industry-standard practices, ensuring robust security measures against potential threats.
 
 📚 Usage
-Clone the repository and follow the setup instructions to explore vulnerabilities, implement fixes, and learn about secure coding practices.
+
+Clone the repository, follow setup instructions to explore vulnerabilities, implement fixes, and learn secure coding practices.
 
 Topics:
+
 Implementing OWASP Top 10 in a Secure MERN Application
 Secure Authentication and Authorization in MERN Stack
 Protecting Against SQL Injection in a MERN Application
