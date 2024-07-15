@@ -1,13 +1,13 @@
-// server.js
-
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const fetch = require("node-fetch"); // Require node-fetch for making HTTP requests
+const cors = require("cors");
 dotenv.config();
 const userDataRoute = require("./routes/userDataRoute");
+const xssRoute = require("./routes/xssRoute");
 
+app.use(cors());
 app.use(express.json());
 
 // Connect to mongodb database (locally)
@@ -23,6 +23,7 @@ mongoose
   .catch((error) => console.log("Failed to connect", error));
 
 app.use(userDataRoute);
+app.use("/xss-test", xssRoute);
 
 // Endpoint to fetch data from a URL (Simulating SSRF)
 app.get("/fetchurl", async (req, res) => {

@@ -4,9 +4,10 @@ import Create from "./components/Create";
 import Read from "./components/Read";
 import Update from "./components/Update";
 import Navbar from "./components/Navbar";
-import SsrfTest from "./components/SsrfTest"; // Import SSRF Test component
-import InputValidationTest from "./components/InputValidationTest"; // Import Input Validation Test component
-import MemoryManagementVulnerable from "./components/MemoryManagementVulnerable"; // Import Memory Management Vulnerable component
+import SsrfTest from "./components/SsrfTest";
+import InputValidationTest from "./components/InputValidationTest";
+import MemoryManagementVulnerable from "./components/MemoryManagementVulnerable";
+import ReflectedXSS from "./components/ReflectedXSS"; // Make sure this import is correct
 
 function App() {
   return (
@@ -18,15 +19,9 @@ function App() {
           <Route path="/read" element={<Read />} />
           <Route path="/update/:id" element={<Update />} />
           <Route path="/ssrf-test" element={<SsrfTest />} />
-          <Route
-            path="/input-validation-test"
-            element={<InputValidationTest />}
-          />
-          <Route
-            path="/memory-management"
-            element={<MemoryManagementVulnerable />}
-          />
-          {/* Add other routes as necessary */}
+          <Route path="/input-validation-test" element={<InputValidationTest />} />
+          <Route path="/memory-management" element={<MemoryManagementVulnerable />} />
+          <Route path="/xss-test" element={<ReflectedXSS />} /> {/* This should use ReflectedXSS */}
         </Routes>
       </BrowserRouter>
     </div>
