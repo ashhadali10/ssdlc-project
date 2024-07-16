@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const UserData = require("../models/userDataModel");
 const fetch = require("node-fetch");
-const { encodeHTML } = require("../utils/security");
 
 // SSRF Test endpoint
 router.get("/ssrf-test", async (req, res) => {
@@ -27,11 +26,10 @@ router.post("/", async (req, res) => {
   }
 
   try {
-    // Assume UserData.create() handles encoding/sanitization based on the model definition
     const userAdded = await UserData.create({
-      name: encodeHTML(name), // Encode HTML output
-      email: encodeHTML(email), // Encode HTML output
-      age: age, // No need to encode age assuming it's a number
+      name: encodeHTML(name),
+      email: encodeHTML(email),
+      age: age,
     });
 
     res.status(201).json(userAdded);
@@ -45,12 +43,10 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const allUsers = await UserData.find();
-
-    // Encode HTML for each user data returned
     const sanitizedUsers = allUsers.map(user => ({
       name: encodeHTML(user.name),
       email: encodeHTML(user.email),
-      age: user.age, // Assuming age is not user-inputted or sensitive
+      age: user.age,
     }));
 
     res.status(200).json(sanitizedUsers);
@@ -70,11 +66,10 @@ router.get("/:id", async (req, res) => {
       return res.status(404).json({ error: "User not found." });
     }
 
-    // Encode HTML for single user data
     const sanitizedUser = {
       name: encodeHTML(singleUser.name),
       email: encodeHTML(singleUser.email),
-      age: singleUser.age, // Assuming age is not user-inputted or sensitive
+      age: singleUser.age,
     };
 
     res.status(200).json(sanitizedUser);
@@ -113,11 +108,10 @@ router.patch("/edit/:id", async (req, res) => {
       return res.status(404).json({ error: "User not found." });
     }
 
-    // Encode HTML for updated user data
     const sanitizedUser = {
       name: encodeHTML(updatedUser.name),
       email: encodeHTML(updatedUser.email),
-      age: updatedUser.age, // Assuming age is not user-inputted or sensitive
+      age: updatedUser.age,
     };
 
     res.status(200).json(sanitizedUser);
@@ -128,21 +122,8 @@ router.patch("/edit/:id", async (req, res) => {
 
 // Excessive Memory Route (for demonstration)
 router.get("/api/excessive-memory", async (req, res) => {
-  // Simulate excessive memory usage
-  const largeArray = new Array(10e6).fill("data"); // Creating a large array
+  const largeArray = new Array(10e6).fill("data");
   res.json({ message: "Excessive memory example" });
-});
-
-
-const express = require("express");
-const router = express.Router();
-
-// Reflected XSS endpoint
-router.get("/xss-test", (req, res) => {
-  const { query } = req.query;
-  
-  // No sanitization of the query parameter, directly reflected in the response
-  res.send(`<p>You searched for: ${query}</p>`);
 });
 
 module.exports = router;

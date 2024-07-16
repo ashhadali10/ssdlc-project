@@ -1,3 +1,5 @@
+// ReflectedXSS.jsx
+
 import React, { useState } from 'react';
 
 const ReflectedXSS = () => {
@@ -7,7 +9,7 @@ const ReflectedXSS = () => {
   const handleTestXSS = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/xss-test?query=${encodeURIComponent(query)}`);
+      const res = await fetch(`http://localhost:5000/xss-test?query=${query}`);
       const data = await res.text();
       setResponse(data);
     } catch (error) {
@@ -40,4 +42,4 @@ const ReflectedXSS = () => {
   );
 };
 
-export default ReflectedXSS
+export default ReflectedXSS;
